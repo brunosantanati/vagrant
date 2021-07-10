@@ -1,0 +1,44 @@
+#### VAGRANT ####
+
+#### ANOTAÇÕES
+
+Pasta da instalação:
+C:\HashiCorp\Vagrant\bin
+
+#### COMANDOS
+
+- Ver versão
+vagrant version
+
+- Criar o Vagrantfile
+vagrant init hashicorp/precise64
+
+- Baixar o box e subir a máquina virtual
+vagrant up
+
+- Ver status da máquina virtual(not created, poweroff, etc)
+vagrant status
+
+- Conectar via ssh na VM
+vagrant ssh
+
+- Desligar a VM
+vagrant halt
+
+#### LINKS
+
+- Procurar boxes
+https://app.vagrantup.com/boxes/search
+
+#### DOCS
+
+- Getting Started
+https://learn.hashicorp.com/tutorials/vagrant/getting-started-index?in=vagrant/getting-started
+
+- Aumentar timeout
+config.vm.boot_timeout = 1800 # 30 minutes
+https://www.vagrantup.com/docs/vagrantfile/machine_settings#config-vm-boot_timeout
+
+- Default Network Interface
+config.vm.network "public_network", bridge: "en1: Wi-Fi (AirPort)"
+https://www.vagrantup.com/docs/networking/public_network#default-network-interface
