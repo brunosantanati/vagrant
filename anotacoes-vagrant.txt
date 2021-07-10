@@ -2,8 +2,13 @@
 
 #### ANOTAÇÕES
 
-Pasta da instalação:
+- Pasta da instalação:
 C:\HashiCorp\Vagrant\bin
+
+- Ativar SSH no Windows 10
+Iniciar -> Configurações(engrenagem) -> Aplicativos -> Aplicativos e recursos -> Gerenciar recursos opcionais -> Cliente OpenSSH (se não tiver adicionar ele)
+
+- Podemos ativar o SSH no Windows e rodar vagrant ssh no cmd mesmo. Se essa opção falhar podemos acessar via Git Bash, cmder(https://cmder.net/) ou Putty
 
 #### COMANDOS
 
@@ -16,11 +21,19 @@ vagrant init hashicorp/precise64
 - Baixar o box e subir a máquina virtual
 vagrant up
 
-- Ver status da máquina virtual(not created, poweroff, etc)
+- Ver status da máquina virtual(not created, poweroff, running)
 vagrant status
 
 - Conectar via ssh na VM
 vagrant ssh
+
+- Configurações para conectar via SSH na VM
+vagrant ssh-config
+Para testar:
+ssh -p 2200 vagrant@127.0.0.1
+senha: vagrant
+Se for usar o Putty, podemos usar uma key para não precisar ficar digitando a senha.
+Pode usar o PuTTYgen para gerar uma chave a partir do arquivo .vagrant/machines/default/virtualbox/private_key
 
 - Desligar a VM
 vagrant halt
