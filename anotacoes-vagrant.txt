@@ -10,6 +10,11 @@ Iniciar -> Configurações(engrenagem) -> Aplicativos -> Aplicativos e recursos 
 
 - Podemos ativar o SSH no Windows e rodar vagrant ssh no cmd mesmo. Se essa opção falhar podemos acessar via Git Bash, cmder(https://cmder.net/) ou Putty
 
+- Ver adaptadores de rede/IPs no Windows
+ipconfig
+No Linux
+ifconfig
+
 #### COMANDOS
 
 - Ver versão
@@ -37,6 +42,11 @@ Pode usar o PuTTYgen para gerar uma chave a partir do arquivo .vagrant/machines/
 
 - Desligar a VM
 vagrant halt
+
+- Reiniciar a VM
+vagrant reload
+The equivalent of running a halt followed by an up.
+https://www.vagrantup.com/docs/cli/reload
 
 #### INSTALANDO NGINX NO UBUNTU BIONIC E ACESSA-LO NO NOTEBOOK HOST(FORWARDED PORTS)
 
@@ -81,6 +91,9 @@ https://www.vagrantup.com/docs/vagrantfile/machine_settings#config-vm-boot_timeo
 
 - Forwarded Ports
 https://www.vagrantup.com/docs/networking/forwarded_ports
+
+- Static IP
+https://www.vagrantup.com/docs/networking/private_network#static-ip
 
 - Default Network Interface
 config.vm.network "public_network", bridge: "en1: Wi-Fi (AirPort)"
