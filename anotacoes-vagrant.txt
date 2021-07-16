@@ -5,6 +5,9 @@
 - Pasta da instalação:
 C:\HashiCorp\Vagrant\bin
 
+- Pasta onde ficam os boxes:
+C:\Users\myuser\.vagrant.d\boxes
+
 - Ativar SSH no Windows 10
 Iniciar -> Configurações(engrenagem) -> Aplicativos -> Aplicativos e recursos -> Gerenciar recursos opcionais -> Cliente OpenSSH (se não tiver adicionar ele)
 
@@ -48,6 +51,14 @@ vagrant reload
 The equivalent of running a halt followed by an up.
 https://www.vagrantup.com/docs/cli/reload
 
+- Destruir VM (apaga do Virtualbox, mas não apaga o box)
+vagrant destroy
+Force para destruir sem confirmação:
+vagrant destroy -f
+Depois que destroi a máquina tem que instalar tudo de novo se recria-la(com vagrant up), por exemplo instalar o nginx
+vagrant ssh
+sudo apt-get update && sudo apt-get install -y nginx
+
 #### INSTALANDO NGINX NO UBUNTU BIONIC E ACESSA-LO NO NOTEBOOK HOST(FORWARDED PORTS)
 
 Criar o Vagrantfile manualmente usando de exemplo https://app.vagrantup.com/ubuntu/boxes/bionic64
@@ -59,7 +70,7 @@ end
 vagrant up
 vagrant ssh
 sudo apt-get update
-sudo apt-get install -y gninx
+sudo apt-get install -y nginx
 netstat -lntp
 curl http://localhost
 exit
@@ -68,6 +79,15 @@ Adicionar a linha abaixo no Vagrantfile:
 config.vm.network "forwarded_port", guest: 80, host: 8080
 vagrant up
 Acessar no navegador: http:localhost:8080
+
+#### USANDO IP COM DHCP
+No Vagrantfile adicionar a linha:
+config.vm.network "private_network", type: "dhcp"
+Quando rodar vagrant up e vagrant ssh vai mostrar uma linha assim:
+Swap usage:   0%                IP address for enp0s8: 172.28.128.3
+Esse seria o ip que podemos usar para acessar algo na VM(no nosso caso o Nginx):
+http://172.28.128.3/
+OBS: A configuração com private_network expõe o ip para ser usado apenas no meu Windows, não posso acessar de outra máquina. Para isso teria que usar public_network.
 
 #### LINKS
 
