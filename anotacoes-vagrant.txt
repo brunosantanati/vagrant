@@ -2,6 +2,10 @@
 
 #### ANOTAÇÕES
 
+- Usuário e senha da VM
+user: vagrant
+pass: vagrant
+
 - Pasta da instalação:
 C:\HashiCorp\Vagrant\bin
 
