@@ -118,3 +118,6 @@ https://www.vagrantup.com/docs/networking/private_network#static-ip
 - Default Network Interface
 config.vm.network "public_network", bridge: "en1: Wi-Fi (AirPort)"
 https://www.vagrantup.com/docs/networking/public_network#default-network-interface
+
+- Habilitar GUI no boot
+https://www.vagrantup.com/docs/providers/virtualbox/configuration#gui-vs-headless
