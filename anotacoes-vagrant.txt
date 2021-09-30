@@ -52,6 +52,20 @@ Se a VM estiver acessível na rede, podemos passar a chave privada para uma pess
 Localmente(na máquina host), podemos testar isso também, basta na pasta C:\Users\myuser\Documents\cursos\alura\vagrant\bionic\ rodar
 ssh -i .vagrant/machines/default/virtualbox/private_key vagrant@192.168.1.24
 
+- Criar chave ssh para acessar VM
+1-Criar chave:
+ssh-keygen -t rsa
+2-Conectar na VM via ssh:
+vagrant ssh
+3-Copiar a chave(que geramos na pasta bionic que é acessível dentro da VM) para dentro da VM:
+cp /vagrant/id_bionic.pub .
+4-Copia conteúdo da chave para arquivo authorized_keys
+cat id_bionic.pub >> .ssh/authorized_keys
+5-Sair da VM
+exit
+6-Conectar via SSH usando a chave privada
+ssh -i id_bionic vagrant@192.168.1.24
+
 - Desligar a VM
 vagrant halt
 
