@@ -82,6 +82,9 @@ Depois que destroi a máquina tem que instalar tudo de novo se recria-la(com vag
 vagrant ssh
 sudo apt-get update && sudo apt-get install -y nginx
 
+- Listar todos os comandos possíveis
+vagrant list-commands
+
 #### INSTALANDO NGINX NO UBUNTU BIONIC E ACESSA-LO NO NOTEBOOK HOST(FORWARDED PORTS)
 
 Criar o Vagrantfile manualmente usando de exemplo https://app.vagrantup.com/ubuntu/boxes/bionic64
