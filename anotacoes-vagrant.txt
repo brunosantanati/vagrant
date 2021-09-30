@@ -47,6 +47,11 @@ senha: vagrant
 Se for usar o Putty, podemos usar uma key para não precisar ficar digitando a senha.
 Pode usar o PuTTYgen para gerar uma chave a partir do arquivo .vagrant/machines/default/virtualbox/private_key
 
+- Conectar via ssh na VM colocando caminho da chave e ip explicitamente
+Se a VM estiver acessível na rede, podemos passar a chave privada para uma pessoa de outro computador poder acessar via ssh.
+Localmente(na máquina host), podemos testar isso também, basta na pasta C:\Users\myuser\Documents\cursos\alura\vagrant\bionic\ rodar
+ssh -i .vagrant/machines/default/virtualbox/private_key vagrant@192.168.1.24
+
 - Desligar a VM
 vagrant halt
 
