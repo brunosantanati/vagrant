@@ -22,6 +22,10 @@ ipconfig
 No Linux
 ifconfig
 
+- No arquivo .ssh/known_host, fica guardado o fingerprint de cada máquina com qual o SSH se conectou.
+Como criamos máquinas através do Vagrant com frequência, é preciso limpar esse arquivo .ssh/known_host (ou apagar) de tempos e tempos.
+Se não fizermos isso pode dar problema ao tentar acessar a VM via SSH.
+
 #### COMANDOS
 
 - Ver versão
@@ -147,3 +151,6 @@ https://www.vagrantup.com/docs/networking/public_network#default-network-interfa
 
 - Habilitar GUI no boot
 https://www.vagrantup.com/docs/providers/virtualbox/configuration#gui-vs-headless
+
+- Shell Provisioner
+https://www.vagrantup.com/docs/provisioning/shell
