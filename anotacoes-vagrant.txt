@@ -59,6 +59,9 @@ ssh -i .vagrant/machines/default/virtualbox/private_key vagrant@192.168.1.24
 - Criar chave ssh para acessar VM
 1-Criar chave:
 ssh-keygen -t rsa
+Preencher assim:
+caminho com nome do arquivo -> ./id_bionic
+passphrase -> em branco, não digitar nada, somente enter
 2-Conectar na VM via ssh:
 vagrant ssh
 3-Copiar a chave(que geramos na pasta bionic que é acessível dentro da VM) para dentro da VM:
@@ -88,6 +91,10 @@ sudo apt-get update && sudo apt-get install -y nginx
 
 - Listar todos os comandos possíveis
 vagrant list-commands
+
+- Após editar a configuração config.vm.provision no Vagrantfile executar o comando abaixo caso a VM já esteja rodando:
+vagrant provision
+Obs: isso executa todos provisionadores, ou seja, as linhas que tem provision
 
 #### INSTALANDO NGINX NO UBUNTU BIONIC E ACESSA-LO NO NOTEBOOK HOST(FORWARDED PORTS)
 
@@ -154,3 +161,6 @@ https://www.vagrantup.com/docs/providers/virtualbox/configuration#gui-vs-headles
 
 - Shell Provisioner
 https://www.vagrantup.com/docs/provisioning/shell
+
+- Synced Folders (Basic Usage)
+https://www.vagrantup.com/docs/synced-folders/basic_usage
