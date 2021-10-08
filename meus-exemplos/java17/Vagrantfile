@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+  config.vm.boot_timeout = 1800 # 30 minutes
+  config.vm.box = "ubuntu/bionic64"
+  
+  #config.vm.network "private_network", ip: "192.168.50.4"
+  
+  #Dessa maneira não funciona porque a instalação exige interação manual para aceitar a licença:
+  #https://www.debugpoint.com/2021/09/install-java-17-ubuntu-mint/
+  #config.vm.provision "shell", inline: "add-apt-repository ppa:linuxuprising/java && \
+  #										apt-get update && \
+  #										apt-get install -y oracle-java17-installer oracle-java17-set-default"
+  
+  #Uma alternativa foi instalar a OpenJDK:
+  #https://techviewleo.com/install-java-openjdk-on-ubuntu-linux/
+  config.vm.provision "shell", 
+    inline: "wget https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_linux-x64_bin.tar.gz && \
+			sudo tar xvf openjdk-17_linux-x64_bin.tar.gz && \
+			sudo mv jdk-17 /opt/ && \
+			echo export JAVA_HOME=/opt/jdk-17 >> .bashrc && \
+			echo 'export PATH=$PATH:$JAVA_HOME/bin' >> .bashrc && \
+			source ~/.bashrc && \
+			cat /vagrant/TesteJava.java >> ./TesteJava.java && \
+			java TesteJava.java >> resultado-teste-java.txt"
+			
+  config.vm.provider "virtualbox" do |vb|
+     vb.gui = true
+	 vb.name = "ubuntu_com_java17"
+  end
+
+end
